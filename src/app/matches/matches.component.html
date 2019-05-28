@@ -1,0 +1,317 @@
+<p-progressSpinner *ngIf="!isLoaded" [style]="{width: '50px', height: '50px', position: 'relative', top: '50%', margin: '-25px auto auto auto'}" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+
+<div *ngIf="isLoaded">
+
+    <div>
+        <p-carousel numVisible="6" headerText="Group A" [value]="matchResponse.groups.a.matches">
+            <ng-template let-match pTemplate="item">
+                <div class="ui-grid ui-grid-responsive" id="{{'GrpA'+match.home_team+match.away_team}}" [ngClass]="checkToday(match.date) ? 'today' : 'matchday'">
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.home_team-1].flag}} width="60px">
+                        </div>
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.away_team-1].flag}} width="60px">
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align match-name">
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.home_team-1].name}}</div>
+                        <div class="ui-grid-col-4">
+                            <strong>vs</strong>
+                        </div>
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.away_team-1].name}}</div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            {{match.date | date:'yyyy-MM-dd HH:mm':'+0530'}}
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            <span clas="fa fa-hand-o-up"></span>
+                            <button type="button" [attr.disabled]="checkDate(match.date) ? null : ''" pButton label="Predict" (click)="selectMatch(match,'GrpA')"></button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+    <div>
+        <p-carousel numVisible="6" headerText="Group B" [value]="matchResponse.groups.b.matches">
+            <ng-template let-match pTemplate="item">
+                <div class="ui-grid ui-grid-responsive" id="{{'GrpB'+match.home_team+match.away_team}}" [ngClass]="checkToday(match.date) ? 'today' : 'matchday'">
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.home_team-1].flag}} width="60px">
+                        </div>
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.away_team-1].flag}} width="60px">
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align match-name">
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.home_team-1].name}}</div>
+                        <div class="ui-grid-col-4">
+                            <strong>vs</strong>
+                        </div>
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.away_team-1].name}}</div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            {{match.date | date:'yyyy-MM-dd HH:mm':'+0530'}}
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            <span clas="fa fa-hand-o-up"></span>
+                            <button type="button" [attr.disabled]="checkDate(match.date) ? null : ''" pButton label="Predict" (click)="selectMatch(match,'GrpB')"></button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+
+    <div>
+        <p-carousel numVisible="6" headerText="Group C" [value]="matchResponse.groups.c.matches">
+            <ng-template let-match pTemplate="item">
+                <div class="ui-grid ui-grid-responsive" id="{{'GrpC'+match.home_team+match.away_team}}" [ngClass]="checkToday(match.date) ? 'today' : 'matchday'">
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.home_team-1].flag}} width="60px">
+                        </div>
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.away_team-1].flag}} width="60px">
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align match-name">
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.home_team-1].name}}</div>
+                        <div class="ui-grid-col-4">
+                            <strong>vs</strong>
+                        </div>
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.away_team-1].name}}</div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            {{match.date | date:'yyyy-MM-dd HH:mm':'+0530'}}
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            <span clas="fa fa-hand-o-up"></span>
+                            <button type="button" [attr.disabled]="checkDate(match.date) ? null : ''" pButton label="Predict" (click)="selectMatch(match,'GrpC')"></button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+    <div>
+        <p-carousel numVisible="6" headerText="Group D" [value]="matchResponse.groups.d.matches">
+            <ng-template let-match pTemplate="item">
+                <div class="ui-grid ui-grid-responsive" id="{{'GrpD'+match.home_team+match.away_team}}" [ngClass]="checkToday(match.date) ? 'today' : 'matchday'">
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.home_team-1].flag}} width="60px">
+                        </div>
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.away_team-1].flag}} width="60px">
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align match-name">
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.home_team-1].name}}</div>
+                        <div class="ui-grid-col-4">
+                            <strong>vs</strong>
+                        </div>
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.away_team-1].name}}</div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            {{match.date | date:'yyyy-MM-dd HH:mm':'+0530'}}
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            <span clas="fa fa-hand-o-up"></span>
+                            <button type="button" [attr.disabled]="checkDate(match.date) ? null : ''" pButton label="Predict" (click)="selectMatch(match,'GrpD')"></button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+    <div>
+        <p-carousel numVisible="6" headerText="Group E" [value]="matchResponse.groups.e.matches">
+            <ng-template let-match pTemplate="item">
+                <div class="ui-grid ui-grid-responsive" id="{{'GrpE'+match.home_team+match.away_team}}" [ngClass]="checkToday(match.date) ? 'today' : 'matchday'">
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.home_team-1].flag}} width="60px">
+                        </div>
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.away_team-1].flag}} width="60px">
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align match-name">
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.home_team-1].name}}</div>
+                        <div class="ui-grid-col-4">
+                            <strong>vs</strong>
+                        </div>
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.away_team-1].name}}</div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            {{match.date | date:'yyyy-MM-dd HH:mm':'+0530'}}
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            <span clas="fa fa-hand-o-up"></span>
+                            <button type="button" [attr.disabled]="checkDate(match.date) ? null : ''" pButton label="Predict" (click)="selectMatch(match,'GrpE')"></button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+    <div>
+        <p-carousel numVisible="6" headerText="Group F" [value]="matchResponse.groups.f.matches">
+            <ng-template let-match pTemplate="item">
+                <div class="ui-grid ui-grid-responsive" id="{{'GrpF'+match.home_team+match.away_team}}" [ngClass]="checkToday(match.date) ? 'today' : 'matchday'">
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.home_team-1].flag}} width="60px">
+                        </div>
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.away_team-1].flag}} width="60px">
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align match-name">
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.home_team-1].name}}</div>
+                        <div class="ui-grid-col-4">
+                            <strong>vs</strong>
+                        </div>
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.away_team-1].name}}</div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            {{match.date | date:'yyyy-MM-dd HH:mm':'+0530'}}
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            <span clas="fa fa-hand-o-up"></span>
+                            <button type="button" [attr.disabled]="checkDate(match.date) ? null : ''" pButton label="Predict" (click)="selectMatch(match,'GrpF')"></button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+    <div>
+        <p-carousel numVisible="6" headerText="Group G" [value]="matchResponse.groups.g.matches">
+            <ng-template let-match pTemplate="item">
+                <div class="ui-grid ui-grid-responsive" id="{{'GrpG'+match.home_team+match.away_team}}" [ngClass]="checkToday(match.date) ? 'today' : 'matchday'">
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.home_team-1].flag}} width="60px">
+                        </div>
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.away_team-1].flag}} width="60px">
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align match-name">
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.home_team-1].name}}</div>
+                        <div class="ui-grid-col-4">
+                            <strong>vs</strong>
+                        </div>
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.away_team-1].name}}</div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            {{match.date | date:'yyyy-MM-dd HH:mm':'+0530'}}
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            <span clas="fa fa-hand-o-up"></span>
+                            <button type="button" [attr.disabled]="checkDate(match.date) ? null : ''" pButton label="Predict" (click)="selectMatch(match,'GrpG')"></button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+    <div>
+        <p-carousel numVisible="6" headerText="Group H" [value]="matchResponse.groups.h.matches">
+            <ng-template let-match pTemplate="item">
+                <div class="ui-grid ui-grid-responsive" id="{{'GrpH'+match.home_team+match.away_team}}" [ngClass]="checkToday(match.date) ? 'today' : 'matchday'">
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.home_team-1].flag}} width="60px">
+                        </div>
+                        <div class="ui-grid-col-6 flag">
+                            <img src={{matchResponse.teams[match.away_team-1].flag}} width="60px">
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align match-name">
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.home_team-1].name}}</div>
+                        <div class="ui-grid-col-4">
+                            <strong>vs</strong>
+                        </div>
+                        <div class="ui-grid-col-4">{{matchResponse.teams[match.away_team-1].name}}</div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            {{match.date | date:'yyyy-MM-dd HH:mm':'+0530'}}
+                        </div>
+                    </div>
+                    <div class="ui-grid-row center-align">
+                        <div class="ui-grid-col-12">
+                            <span clas="fa fa-hand-o-up"></span>
+                            <button type="button" [attr.disabled]="checkDate(match.date) ? null : ''" pButton label="Predict" (click)="selectMatch(match,'GrpH')"></button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+    <p-dialog *ngIf="selectedMatch" header="Place your bet" [(visible)]="display" [modal]="true" [responsive]="true" [width]="350" [minWidth]="200" [minY]="70" [baseZIndex]="0">
+        <div class="ui-grid-row center-align">
+            <div class="ui-grid-col-6 flag">
+                <img src={{matchResponse.teams[selectedMatch.home_team-1].flag}} width="60px">
+            </div>
+            <div class="ui-grid-col-6 flag">
+                <img src={{matchResponse.teams[selectedMatch.away_team-1].flag}} width="60px">
+            </div>
+        </div>
+        <div class="ui-grid-row center-align">
+            <div class="ui-grid-col-4">{{matchResponse.teams[selectedMatch.home_team-1].name}}</div>
+            <div class="ui-grid-col-4">VS</div>
+            <div class="ui-grid-col-4">{{matchResponse.teams[selectedMatch.away_team-1].name}}</div>
+        </div>
+        <div class="ui-grid-row center-align">
+            <div class="ui-grid-col-12">
+                {{selectedMatch.date | date:'yyyy-MM-dd HH:mm':'+0530'}}
+            </div>
+        </div>
+        <div class="ui-grid-row center-align">
+            <div class="ui-grid-col-12">
+                <p-selectButton [options]="results" [(ngModel)]="selectedResult"></p-selectButton>
+            </div>
+        </div>
+        <p-footer>
+            <button type="button" pButton icon="pi pi-check" (click)="submitBet()" label="Submit Prediction"></button>
+        </p-footer>
+    </p-dialog>
+
+</div>
+
+<p-growl [(value)]="msgs"></p-growl>

@@ -1,0 +1,21 @@
+.center-align div {
+    text-align: center;
+    /* width: 100%; */
+}
+
+.today {
+    background-color: #77e27d;
+}
+
+.matchday {
+    background-color: #ece09b;
+    ;
+}
+
+.flag {
+    height: 60px;
+}
+
+.match-name {
+    height: 48px;
+}
